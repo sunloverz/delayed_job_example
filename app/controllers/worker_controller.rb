@@ -1,5 +1,5 @@
 class WorkerController < ApplicationController
   def index
-    MyJob.perform_later
+    MyJob.set(wait: 1.minute).perform_later
   end
 end
